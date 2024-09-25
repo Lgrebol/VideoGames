@@ -11,11 +11,15 @@ public class User {
     private LocalDate birthDate;      
     private String password; 
 
-    public User(String nickname) {
+    public User(String nickname, String password) {
         this.nickname = nickname;
         this.password = password; 
         lastId++;
         this.id = lastId;
+    }
+
+    public User(String nickname) {
+        this(nickname, "");
     }
 
     public int getId() {
