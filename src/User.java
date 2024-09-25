@@ -8,10 +8,12 @@ public class User {
     private String name;               
     private String lastName;           
     private String email;              
-    private LocalDate birthDate;       
+    private LocalDate birthDate;      
+    private String password; 
 
     public User(String nickname) {
         this.nickname = nickname;
+        this.password = password; 
         lastId++;
         this.id = lastId;
     }
@@ -62,5 +64,9 @@ public class User {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public String getPassword(){
+        return password;
     }
 }
