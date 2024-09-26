@@ -4,8 +4,13 @@ import java.util.Map;
 public class AuthenticationService {
     private Map<String, User> users = new HashMap<>();
 
-    public void registerUser(String nickname, String password) {
-        users.put(nickname, new User(nickname, password));
+    public boolean registerUser(String nickname, String password) {
+        if (users.containsKey(nickname)) {
+            return false;
+        } else {
+            users.put(nickname, new User(nickname, password));
+            return true;
+        }
     }
 
     public boolean login(String nickname, String password) {
