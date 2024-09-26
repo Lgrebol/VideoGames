@@ -15,7 +15,7 @@ public class Videogame {
     private String requirements;
 
     private Set<User> usersWhoHaveConsulted;
-    private List<Reviews> reviews;  // List to store reviews for the videogame
+    private List<Reviews> reviews;
 
     public Videogame(String name) {
         this.name = name;
@@ -23,7 +23,6 @@ public class Videogame {
         this.reviews = new ArrayList<>();
     }
     
-    // Getters and Setters
     public String getName() {
         return name;
     }
@@ -104,24 +103,21 @@ public class Videogame {
         usersWhoHaveConsulted.add(user);
     }
 
-    // Method to add a review
     public void addReview(Reviews review) {
         reviews.add(review);
     }
 
-    // Method to display all reviews
     public void showReviews() {
         if (reviews.isEmpty()) {
             System.out.println("No reviews yet.");
         } else {
             System.out.println("Reviews for " + name + ":");
             for (Reviews review : reviews) {
-                review.showReview(); // Display each review
+                review.showReview();
             }
         }
     }
 
-    // Method to display the videogame details
     public void showData() {
         System.out.println(this.getName());
         System.out.println("-------------------------------");
@@ -134,6 +130,6 @@ public class Videogame {
         System.out.println("* SPECIFIC CONTENT (PEGI): " + this.getSpecificContentPEGI());
         System.out.println("* REQUIREMENTS:\n" + this.getRequirements());
         System.out.println();
-        this.showReviews();  // Also show reviews after displaying game details
+        this.showReviews();  
     }
 }

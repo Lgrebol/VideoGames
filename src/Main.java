@@ -35,6 +35,25 @@ public class Main {
             Videogame videogame1 = library.find(loggedInUser, "Return to Monkey Island");
             videogame1.showData();
 
+            videogame1.showReviews();
+
+            System.out.println("\nDo you want to add a review? (yes/no)");
+            String response = scanner.nextLine();
+
+            if (response.equalsIgnoreCase("yes")) {
+                System.out.print("Enter a rating (1-5): ");
+                int rating = Integer.parseInt(scanner.nextLine());
+
+                System.out.print("Enter a comment: ");
+                String comment = scanner.nextLine();
+
+                Reviews review = new Reviews(loggedInUser, rating, comment);
+                videogame1.addReview(review);
+                System.out.println("Review added successfully!");
+
+                videogame1.showReviews();
+            }
+
             System.out.println("\n** USERS WHO HAVE CONSULTED");
             Set<User> usersWhoHaveConsulted = videogame1.getUsersWhoHaveConsulted();
             for (User user : usersWhoHaveConsulted) {
